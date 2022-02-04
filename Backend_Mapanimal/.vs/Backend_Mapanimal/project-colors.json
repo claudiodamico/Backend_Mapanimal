@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ee477c62-60a0-41b8-88f6-0dbe86a55e6d": {
+      "ProjectGuid": "ee477c62-60a0-41b8-88f6-0dbe86a55e6d",
+      "DisplayName": "Backend_Mapanimal",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
