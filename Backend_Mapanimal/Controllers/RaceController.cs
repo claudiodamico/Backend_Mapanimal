@@ -3,47 +3,48 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Backend_Mapanimal.Controllers
 {
 
-    [Route("api/race")]
+    [Route("api/[controller]")]
     [ApiController]
     public class RaceController : ControllerBase
     {
-        private readonly ILogger<RaceController> logger;
+        private readonly ILogger<RaceController> _logger;
 
         public RaceController(ILogger<RaceController> logger)
         {
-            this.logger = logger;
+            this._logger = logger;
         }
 
         [HttpGet]
-        public ActionResult <List<Race>> Get()// Get general
+        public async Task<ActionResult<Race>> Get()// Get general
         {
-            return new List<Race>() { new Race() { Id = 1, Name = "Puqui" } };
+            throw new NotImplementedException();
         }
 
         [HttpGet("{Id:int}")] // Get by Id
-        public ActionResult<Race> Get(int Id)
+        public async Task<ActionResult<Race>> Get(int Id)
         {
             throw new NotImplementedException();
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] Race race)
+        public async Task<ActionResult<Race>> Post([FromBody] Race race)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut]
-        public ActionResult Put([FromBody] Race race)
+        public async Task<ActionResult<Race>> Put([FromBody] Race race)
         {
             throw new NotImplementedException();
         }
 
         [HttpDelete]
-        public AcceptedResult Delete()
+        public async Task<ActionResult<Race>> Delete()
         {
             throw new NotImplementedException();
         }
