@@ -12,13 +12,6 @@ namespace Backend_Mapanimal.Controllers
     [ApiController]
     public class RaceController : ControllerBase
     {
-        private readonly ILogger<RaceController> _logger;
-
-        public RaceController(ILogger<RaceController> logger)
-        {
-            this._logger = logger;
-        }
-
         [HttpGet]
         public async Task<ActionResult<Race>> Get()// Get general
         {
