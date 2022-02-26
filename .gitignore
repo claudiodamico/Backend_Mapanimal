@@ -12,7 +12,7 @@ file.ext # not a comment
 # i.e. otherfile.ext will be ignored anywhere on the tree.
 dir/otherdir/file.ext
 otherfile.ext
-*.cache is missing
+*.cache 
 # Ignoring directories
 # Both the directory itself and its contents will be ignored.
 bin/
