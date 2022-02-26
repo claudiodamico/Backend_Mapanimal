@@ -2,8 +2,8 @@
 {
     public class Race
     {
-        private int Id { get; set; }
+        public int Id { get; private set; }
 
-        private string Name { get; set; }
+        public string Name { get; private set; }
     }
 }
