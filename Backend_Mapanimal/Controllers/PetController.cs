@@ -10,34 +10,34 @@ namespace Backend_Mapanimal.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class RaceController : ControllerBase
+    public class PetController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<Race>> Get()// Get general
+        public async Task<ActionResult<Pet>> Get()// Get general
         {
             throw new NotImplementedException();
         }
 
         [HttpGet("{Id:int}")] // Get by Id
-        public async Task<ActionResult<Race>> Get(int Id)
+        public async Task<ActionResult<Pet>> Get(int Id)
         {
             throw new NotImplementedException();
         }
 
         [HttpPost]
-        public async Task<ActionResult<Race>> Post([FromBody] Race race)
+        public async Task<ActionResult<Pet>> Post([FromBody] Pet pet)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut]
-        public async Task<ActionResult<Race>> Put([FromBody] Race race)
+        public async Task<ActionResult<Pet>> Put([FromBody] Pet pet)
         {
             throw new NotImplementedException();
         }
 
         [HttpDelete]
-        public async Task<ActionResult<Race>> Delete()
+        public async Task<ActionResult<Pet>> Delete()
         {
             throw new NotImplementedException();
         }
