@@ -10,7 +10,6 @@ namespace Backend_Mapanimal.AppContext
         {
 
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

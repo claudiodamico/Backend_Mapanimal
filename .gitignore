@@ -17,6 +17,9 @@ otherfile.ext
 # Both the directory itself and its contents will be ignored.
 bin/
 gen/
+obj/
+DesignTimeBuild/ 
+v17/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -32,3 +35,4 @@ bld/
 [Ll]og/
 [Ll]ogs/
 *.jpg
+

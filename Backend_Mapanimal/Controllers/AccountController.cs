@@ -56,7 +56,7 @@ namespace Backend_Mapanimal.Controllers
             }
             else
             {
-                return BadRequest("Login incorrecto");
+                return BadRequest("Incorrect Login");
             }
         }
 

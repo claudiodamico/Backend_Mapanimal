@@ -21,5 +21,10 @@ namespace Backend_Mapanimal.Entities
         [Required]
         [Display(Name = "Age")]
         public int Age {  get;  private set; }
+
+        protected internal int SetId
+        {
+            set { Id = value; }
+        }
     }
 }
