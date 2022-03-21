@@ -1,4 +1,6 @@
 ﻿using Backend_Mapanimal.Dtos;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +16,7 @@ namespace Backend_Mapanimal.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<IdentityUser> userManager;
@@ -29,6 +32,7 @@ namespace Backend_Mapanimal.Controllers
         }
         [HttpPost]
         [Route("Create")]
+        [AllowAnonymous]
         public async Task<ActionResult<AuthResponse>> Create([FromBody] CredentialsUser credentials)
         {
             var users = new IdentityUser { UserName = credentials.Email, Email = credentials.Email };
@@ -46,6 +50,7 @@ namespace Backend_Mapanimal.Controllers
 
         [HttpPost]
         [Route("Login")]
+        [AllowAnonymous]
         public async Task<ActionResult<AuthResponse>> Login([FromBody] CredentialsUser credentials)
         { 
             var result = await signInManager.PasswordSignInAsync(credentials.Email, credentials.Password,

@@ -2,6 +2,8 @@
 using Backend_Mapanimal.AppContext;
 using Backend_Mapanimal.Dtos;
 using Backend_Mapanimal.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -14,6 +16,7 @@ namespace Backend_Mapanimal.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PetController : ControllerBase
     {
         private readonly MapanimalDbContext _context;
@@ -28,6 +31,7 @@ namespace Backend_Mapanimal.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<List<PetDTO>>> Get()// Get general
         {
             var pet = await _context.Pets.ToListAsync();
@@ -36,6 +40,7 @@ namespace Backend_Mapanimal.Controllers
         }
 
         [HttpGet("{Id:int}")] // Get by Id
+        [AllowAnonymous]
         public async Task<ActionResult<PetDTO>> Get(int Id)
         {
             var pet = await _context.Pets.FirstOrDefaultAsync(x => x.Id == Id);
@@ -48,6 +53,7 @@ namespace Backend_Mapanimal.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult> Post([FromBody] CreatePetDTO createPetDTO)
         {
             var pet = mapper.Map<Pet>(createPetDTO);
@@ -57,6 +63,7 @@ namespace Backend_Mapanimal.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Pet>> Put(int id, [FromBody] CreatePetDTO createPetDTO)
         {
             var pet = await _context.Pets.FirstOrDefaultAsync(x => x.Id == id);
@@ -71,6 +78,7 @@ namespace Backend_Mapanimal.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Pet>> Delete(int id)
         {
             var exist = await _context.Pets.AnyAsync(x => x.Id == id);
